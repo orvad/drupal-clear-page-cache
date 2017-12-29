@@ -1,0 +1,49 @@
+<?php
+/**
+ * @file
+ * Adds link & permissions for clearing Drupal page cache.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function clear_page_cache_permission() {
+  return array(
+    'use clear page cache' => array(
+      'title' => t('Clear page cache'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function clear_page_cache_menu() {
+  $items = array();
+  $items['admin/clearpagecache'] = array(
+    'title' => 'Clear Page Cache',
+    'page callback' => 'clear_page_cache_action',
+    'access arguments' => array('use clear page cache'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 16,
+  );
+  return $items;
+}
+
+/**
+ *    Flush drupal cache
+ *    Possible values: cache, cache_path, cache_filter, cache_bootstrap, cache_page
+ */
+function clear_page_cache_action() {
+
+  cache_clear_all('*', 'cache_page', TRUE);
+  drupal_set_message(t('Page cache cleared.'), 'status');
+  drupal_goto($_SERVER['HTTP_REFERER']);
+}
+
+  // Do not clear cache_form - current form submissions may break.
+  // $core = array('cache', 'cache_path', 'cache_filter', 'cache_bootstrap', 'cache_page');
+  // $cache_tables = array_merge(module_invoke_all('flush_caches'), $core);
+  // foreach ($cache_tables as $table) {
+  //   cache_clear_all('*', $table, TRUE);
+  // }

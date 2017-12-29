@@ -1,0 +1,6 @@
+name = Clear Page Cache
+description = "Clears Drupal Page Cache and adds a main admin menu item."
+core = 7.x
+package = Clear Page Cache
+
+
