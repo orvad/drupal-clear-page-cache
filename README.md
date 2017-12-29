@@ -1,4 +1,4 @@
-# Clear Page Cache
+# Drupal 7 Clear Page Cache
 Simple Drupal 7 module to clear page cache only.
 
 Useful when Drupal core caching is turned on, and you'd like to show your node edits immediately to anonymous visitors, but don't want to clear the entire cache.
