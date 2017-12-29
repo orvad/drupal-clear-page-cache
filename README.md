@@ -5,6 +5,6 @@ Useful when Drupal core caching is turned on, and you'd like to show your node e
 
 The module adds a menu link (admin/clearpagecache "Clear Page Cache") and a role permission (use clear page cache).
 
-The module is quite fast even for sites with many pages (1000+). Of course you empty the page cache entirely, so be mindful when using this module - all your pages will need to be cached again sometimes at the expense of page speed for the first anonymous visitor. You could use an app like Screaming Frog SEO Spider to hit all pages (eg. "prime the cache") if you want.
+The module is quite fast even for sites with many pages (1000+). Of course you empty the page cache entirely, so be mindful when using this module - all your pages will need to be cached again sometimes at the expense of page speed for the first anonymous visitor. TIP: Use a spider/crawler app to hit all pages (eg. "prime the cache") after emptying the page cache.
 
 An alternative is the 'Clear Cache' module https://www.drupal.org/project/clear_cache, but I think it clears the entire cache as opposed to just the page cache.
